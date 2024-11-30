@@ -5,10 +5,10 @@ const { getFirestore } = require('firebase-admin/firestore');
 
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('./byard-adc-samimhassan-firebase-adminsdk-z3t04-dae97a433c.json');
+// const serviceAccount = require('./byard-adc-samimhassan-firebase-adminsdk-z3t04-dae97a433c.json');
 
 initializeApp({
-  credential: cert(serviceAccount),
+  credential: cert(process.env.GOOGLE_APPLICATION_CREDENTIALS),
 });
 
 
