@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { initializeApp, applicationDefault } = require('firebase-admin/app');
+const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 
 
@@ -27,15 +27,15 @@ app.post('/submit-event', async (req, res) => {
     }
 
     // Save the data to Firestore
-    const eventRef = db.collection('events').doc();
+    const eventRef = db.collection('samim_hassan_events').doc();
     await eventRef.set({
-      eventTitle,
-      eventType,
-      organizationName,
-      contactEmail,
-      startsAt,
-      endsAt,
-      createdAt: new Date(),
+      event_title,
+      event_type,
+      organization_name,
+      contact_email,
+      e_start_date,
+      e_end_date,
+      created_at: new Date(),
     });
 
     res.status(200).send({ message: 'Event submitted successfully!' });
