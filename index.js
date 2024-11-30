@@ -29,13 +29,13 @@ app.post('/submit-event', async (req, res) => {
     // Save the data to Firestore
     const eventRef = db.collection('samim_hassan_events').doc();
     await eventRef.set({
-      event_title,
-      event_type,
-      organization_name,
-      contact_email,
-      e_start_date,
-      e_end_date,
-      created_at: new Date(),
+        eventTitle,
+        eventType,
+        organizationName,
+        contactEmail,
+        startsAt,
+        endsAt,
+        created_at: new Date(),
     });
 
     res.status(200).send({ message: 'Event submitted successfully!' });
